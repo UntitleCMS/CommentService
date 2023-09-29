@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+        environment:
+            - DB_CONNECTION_STRING=mongodb://database:27017/comment
+        networks:
+            - hermes
+
+    database:
+        image: mongo
+        restart: always
+        ports:
+            - 27017:27017
+        volumes:
+            - db:/data/db
+        networks:
+            - hermes
+
+volumes:
+    db:
+
+networks:
+    hermes:
