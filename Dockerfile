@@ -1,4 +1,5 @@
 FROM oven/bun
+LABEL org.opencontainers.image.source = "https://github.com/UntitleCMS/CommentService"
 
 WORKDIR /home/bun/app/
 COPY package* .
